@@ -1,17 +1,12 @@
-'''Para este ejercicio, deberás crear una clase que representa una matriz. Las operaciones que esta clase debe permitir son la creación de una matriz a partir de una lista de listas, la impresión de la matriz en una forma legible, y el cálculo de la transpuesta de la matriz. Asegúrate de que cada método tenga una única responsabilidad.'''
+class Matrix:
+    def __init__(self, elements):
+        self.elements = elements
 
+    def print(self):
+        for row in self.elements:
+            print(row)
 
+    def transpose(self):
+        print("In transpose")
+        return Matrix([[row[i] for row in self.elements] for i in range(len(self.elements[0]))])
 
-
-
-
-class Matriz:
-    def __init__(self, elementos):
-        self.elementos = elementos
-
-    def imprimir(self):
-        for fila in self.elementos:
-            print(fila)
-
-    def transpuesta(self):
-        return Matriz([[fila[i] for fila in self.elementos] for i in range(len(self.elementos[0]))])
