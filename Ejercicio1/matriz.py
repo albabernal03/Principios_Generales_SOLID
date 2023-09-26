@@ -9,7 +9,8 @@ class Transpuesta(Matriz):
 
     def transpuesta(self):
         return [[self.elementos[j][i] for j in range(len(self.elementos))] for i in range(len(self.elementos[0]))] #esto es una funcion lambda que significa lo mismo que el for 
-    
+    #en este caso es correcto usar la funcion ya que no estamos trabajando con grandes volunes de datos
+    #si manejamos muchos datos es mejor usar el for, ya que la funcion lambda es mas lenta
 
 class Imprimir(Matriz):
     def __init__(self,elementos: list):
@@ -17,7 +18,10 @@ class Imprimir(Matriz):
         self.elementos = elementos
 
     def imprimir(self):
-        for i in range(len(self.elementos)):
-            for j in range(len(self.elementos[0])):
-                print(self.elementos[i][j], end=" ")
-            print()
+        for fila in self.elementos:
+            print(fila)
+
+class Lanzador(Imprimir, Transpuesta):
+    #Creame funcion que permita llamar a las funciones imprimir y transpuesta de las clases Imprimir y Transpuesta y recoja los datos de la clase Matriz
+
+
