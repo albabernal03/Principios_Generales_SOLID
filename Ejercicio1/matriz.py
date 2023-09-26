@@ -22,6 +22,34 @@ class Imprimir(Matriz):
             print(fila)
 
 class Lanzador(Imprimir, Transpuesta):
-    #Creame funcion que permita llamar a las funciones imprimir y transpuesta de las clases Imprimir y Transpuesta y recoja los datos de la clase Matriz
+    #Creame funcion que permita llamar a las funciones imprimir y transpuesta de las clases Imprimir y Transpuesta y recoja los datos con un input
+    def __init__(self):
+        self.elementos=[]
+        self.cantidad_filas = int(input("Ingrese la cantidad de filas: "))
+        self.cantidad_columnas = int(input("Ingrese la cantidad de columnas: "))
+        self.crear_matriz()
+        super().__init__(self.elementos) 
+
+    def crear_matriz(self):
+        for i in range(self.cantidad_filas):
+            fila = []
+            for j in range(self.cantidad_columnas):
+                fila.append(int(input("Ingrese el elemento: ")))
+            self.elementos.append(fila)
+
+    def lanzar(self):
+        self.imprimir()
+        print("La matriz transpuesta es: ")
+        print(self.transpuesta()) 
+        
 
 
+class Main():
+    def __init__(self):
+        self.lanzar()
+
+    def lanzar(self):
+        Lanzador().lanzar()
+
+if __name__ == "__main__":
+    Main()
