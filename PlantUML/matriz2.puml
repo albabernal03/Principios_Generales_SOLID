@@ -1,0 +1,37 @@
+@startuml matriz2
+class Matriz {
+    - elementos: list
+    + __init__(elementos: list)
+}
+
+class MatrizOperacion {
+    - matriz: Matriz
+    + __init__(matriz: Matriz)
+}
+
+class Transpuesta {
+    + calcular(): Matriz
+}
+
+class Imprimir {
+    + imprimir()
+}
+
+class Lanzador {
+    - elementos: list
+    - cantidad_filas: int
+    - cantidad_columnas: int
+    - matriz: Matriz
+    - transpuesta: Transpuesta
+    - imprimir: Imprimir
+    + __init__()
+    + crear_matriz()
+    + lanzar()
+}
+
+MatrizOperacion <|-- Transpuesta
+MatrizOperacion <|-- Imprimir
+
+Matriz --* MatrizOperacion
+Lanzador --* Matriz
+@enduml
